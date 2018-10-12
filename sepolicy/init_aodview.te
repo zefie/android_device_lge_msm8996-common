@@ -1,0 +1,25 @@
+type aodview, domain;
+type aodview_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(aodview)
+vndbinder_use(aodview)
+
+
+allow init aodview:process transition;
+
+allow aodview self:capability { chown fowner fsetid };
+
+#allow aodview aodview_exec:file { rx_file_perms entrypoint };
+#allow aodview vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow aodview vendor_toolbox_exec:file rx_file_perms;
+allow aodview hwservicemanager_prop:file { read open getattr };
+allow hwservicemanager aodview:binder { call transfer };
+allow aodview hwservicemanager:binder { call transfer };
+allow hwservicemanager aodview:dir { search };
+allow hwservicemanager aodview:file { read open getattr };
+allow hwservicemanager aodview:process { getattr };
+allow aodview aodviewh:hwservice_manager { find add };
+allow aodview hidl_base_hwservice:hwservice_manager { add };
+
+allow aodview aodviewh:service_manager find;
+allow aodview aodviewh:service_manager add;

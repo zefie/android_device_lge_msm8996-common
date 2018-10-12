@@ -1,2 +1,10 @@
 type nxpnfc_hwservice, hwservice_manager_type;
 type lge_sysnode, hwservice_manager_type;
+type aodcommonh, hwservice_manager_type;
+type aodpowerh, hwservice_manager_type;
+type aodviewh, hwservice_manager_type;
+type display_brightnessh, hwservice_manager_type;
+type display_generalh, hwservice_manager_type;
+type display_ueventh, hwservice_manager_type;
+type display_tuneh, hwservice_manager_type;
+type lge_lighth, hwservice_manager_type;

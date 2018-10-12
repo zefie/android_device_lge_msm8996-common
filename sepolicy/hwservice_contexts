@@ -1,3 +1,14 @@
-vendor.nxp.nxpnfc::INxpNfc                                    u:object_r:nxpnfc_hwservice:s0
-vendor.nxp.nxpese::INxpEse                                    u:object_r:nxpnfc_hwservice:s0
-vendor.lge.hardware.sysnode::ISysNode                         u:object_r:lge_sysnode:s0
+vendor.nxp.nxpnfc::INxpNfc                                                  u:object_r:nxpnfc_hwservice:s0
+vendor.nxp.nxpese::INxpEse                                                  u:object_r:nxpnfc_hwservice:s0
+vendor.lge.hardware.sysnode::ISysNode                                       u:object_r:lge_sysnode:s0
+vendor.lge.hardware.aod.aodcommon::IAodCommon                               u:object_r:aodcommonh:s0
+vendor.lge.hardware.aod.aodpower::IAodPower                                 u:object_r:aodpowerh:s0
+vendor.lge.hardware.aod.aodview::IAodView                                   u:object_r:aodviewh:s0
+vendor.lge.hardware.display.brightness::IDisplayBrightness                  u:object_r:display_brightnessh:s0
+vendor.lge.hardware.display.general::IDisplayGeneral                        u:object_r:display_generalh:s0
+vendor.lge.hardware.display.uevent::IUevent                                 u:object_r:display_ueventh:s0
+vendor.lge.hardware.display.uevent.dpsupport::IDPSupport                    u:object_r:display_ueventh:s0
+vendor.lge.hardware.display.uevent.dynamicresolution::IDynamicResolution    u:object_r:display_ueventh:s0
+vendor.lge.hardware.display.tune::IDisplayTune                              u:object_r:display_tuneh:s0
+vendor.lge.hardware.light::ILight                                           u:object_r:hal_light_hwservice:s0
+vendor.lge.hardware.light::ILightEx                                         u:object_r:hal_light_hwservice:s0
