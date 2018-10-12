@@ -1,0 +1,26 @@
+type display_tune, domain;
+type display_tune_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(display_tune)
+vndbinder_use(display_tune)
+
+allow init display_tune:process transition;
+
+allow display_tune self:capability { chown fowner fsetid };
+
+#allow display_tune display_tune_exec:file { rx_file_perms entrypoint };
+#allow display_tune vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow display_tune vendor_toolbox_exec:file rx_file_perms;
+allow display_tune hwservicemanager_prop:file { read open getattr };
+allow hwservicemanager display_tune:binder { call transfer };
+allow display_tune hwservicemanager:binder { call transfer };
+allow hwservicemanager display_tune:dir { search };
+allow hwservicemanager display_tune:file { read open getattr };
+allow hwservicemanager display_tune:process { getattr };
+allow display_tune display_tuneh:hwservice_manager { find add };
+allow display_tune hidl_base_hwservice:hwservice_manager { add };
+
+allow display_tune display_tuneh:service_manager find;
+allow display_tune display_tuneh:service_manager add;
+
+

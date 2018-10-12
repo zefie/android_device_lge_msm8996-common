@@ -1,0 +1,27 @@
+type display_general, domain;
+type display_general_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(display_general)
+vndbinder_use(display_general)
+
+allow init display_general:process transition;
+
+allow display_general self:capability { chown fowner fsetid };
+
+#allow display_general display_general_exec:file { rx_file_perms entrypoint };
+#allow display_general vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow display_general vendor_toolbox_exec:file rx_file_perms;
+allow display_general hwservicemanager_prop:file { read open getattr };
+allow hwservicemanager display_general:binder { call transfer };
+allow display_general hwservicemanager:binder { call transfer };
+allow hwservicemanager display_general:dir { search };
+allow hwservicemanager display_general:file { read open getattr };
+allow hwservicemanager display_general:process { getattr };
+allow display_general display_generalh:hwservice_manager { find add };
+allow display_general hidl_base_hwservice:hwservice_manager { add };
+
+allow display_general sysfs_graphics:dir search;
+allow display_general sysfs_leds:dir search;
+
+allow display_general display_generalh:service_manager find;
+allow display_general display_generalh:service_manager add;

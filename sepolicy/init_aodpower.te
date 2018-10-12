@@ -1,0 +1,25 @@
+type aodpower, domain;
+type aodpower_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(aodpower)
+vndbinder_use(aodpower)
+
+allow init aodpower:process transition;
+
+allow aodpower self:capability { chown fowner fsetid };
+
+#allow aodpower aodpower_exec:file { rx_file_perms entrypoint };
+#allow aodpower vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow aodpower vendor_toolbox_exec:file rx_file_perms;
+allow aodpower hwservicemanager_prop:file { read open getattr };
+allow aodpower hwservicemanager:dir search;
+allow hwservicemanager aodpower:binder { call transfer };
+allow aodpower hwservicemanager:binder { call transfer };
+allow hwservicemanager aodpower:dir { search };
+allow hwservicemanager aodpower:file { read open getattr };
+allow hwservicemanager aodpower:process { getattr };
+allow aodpower aodpowerh:hwservice_manager { find add };
+allow aodpower hidl_base_hwservice:hwservice_manager { add };
+
+allow aodpower aodpowerh:service_manager find;
+allow aodpower aodpowerh:service_manager add;

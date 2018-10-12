@@ -1,0 +1,28 @@
+type display_brightness, domain;
+type display_brightness_exec, exec_type, vendor_file_type,file_type;
+
+init_daemon_domain(display_brightness)
+vndbinder_use(display_brightness)
+
+
+allow init display_brightness:process transition;
+
+allow display_brightness self:capability { chown fowner fsetid };
+
+#allow display_brightness display_brightness_exec:file { rx_file_perms entrypoint };
+#allow display_brightness vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow display_brightness vendor_toolbox_exec:file rx_file_perms;
+allow display_brightness hwservicemanager_prop:file { read open getattr };
+allow hwservicemanager display_brightness:binder { call transfer };
+allow display_brightness hwservicemanager:binder { call transfer };
+allow hwservicemanager display_brightness:dir { search };
+allow hwservicemanager display_brightness:file { read open getattr };
+allow hwservicemanager display_brightness:process { getattr };
+allow display_brightness display_brightnessh:hwservice_manager { find add };
+allow display_brightness hidl_base_hwservice:hwservice_manager { add };
+
+allow display_brightness sysfs_graphics:dir search;
+allow display_brightness sysfs_leds:dir search;
+
+allow display_brightness display_brightnessh:service_manager find;
+allow display_brightness display_brightnessh:service_manager add;

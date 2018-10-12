@@ -49,6 +49,8 @@
 /sys/devices/soc/leds-qpnp-25/leds/green(/.*)                   u:object_r:sysfs_leds:s0
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,mdss_mdp/[a-z0-9]+.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight-ex(/.*)?   u:object_r:sysfs_graphics:s0
 /sys/devices/soc.0/[a-z0-9]+.qcom,mdss_mdp/qcom,mdss_fb_primary.+[a-z0-9]/leds/lcd-backlight-ex(/.*)?   u:object_r:sysfs_graphics:s0
+/sys/class/leds/lcd-backlight(/.*)? u:object_r:sysfs_graphics:s0
+/sys/class/leds/lcd-backlight-ex(/.*) u:object_r:sysfs_graphics:s0
 
 # Netmgr
 /data/misc/netmgr(/.*)?                                             u:object_r:net_data_file:s0
@@ -115,11 +117,11 @@
 /data/connectivity(/.*)?                                            u:object_r:cnd_core_data_file:s0
 
 # AOD
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodcommon@1\.0-service           u:object_r:vendor_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodpower@1\.0-service            u:object_r:vendor_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodview@1\.0-service             u:object_r:vendor_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.brightness@1\.0-service	    u:object_r:hal_display_brightness_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.general@1\.0-service	        u:object_r:hal_display_general_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.tune@1\.0-service		    u:object_r:hal_display_tune_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.uevent@1\.0-service	        u:object_r:hal_display_uevent_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.light@1\.0-service		            u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodcommon@1\.0-service   u:object_r:aodcommon_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodpower@1\.0-service    u:object_r:aodpower_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodview@1\.0-service     u:object_r:aodview_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.brightness@1\.0-service	u:object_r:display_brightness_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.general@1\.0-service	u:object_r:display_general_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.tune@1\.0-service		u:object_r:display_tune_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.uevent@1\.0-service	u:object_r:display_uevent_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.light@1\.0-service		u:object_r:hal_light_default_exec:s0

@@ -1,0 +1,24 @@
+type aodcommon, domain, binder_in_vendor_violators;
+type aodcommon_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(aodcommon)
+vndbinder_use(aodcommon)
+
+allow init aodcommon:process transition;
+
+allow aodcommon self:capability { chown fowner fsetid };
+
+#allow aodcommon aodcommon_exec:file { rx_file_perms entrypoint };
+#allow aodcommon vendor_shell_exec:file { rx_file_perms entrypoint };
+#allow aodcommon vendor_toolbox_exec:file rx_file_perms;
+allow aodcommon hwservicemanager_prop:file { read open getattr };
+allow hwservicemanager aodcommon:binder { call transfer };
+allow aodcommon hwservicemanager:binder { call transfer };
+allow hwservicemanager aodcommon:dir { search };
+allow hwservicemanager aodcommon:file { read open getattr };
+allow hwservicemanager aodcommon:process { getattr };
+allow aodcommon aodcommonh:hwservice_manager { find add };
+allow aodcommon hidl_base_hwservice:hwservice_manager { add };
+
+allow aodcommon aodcommonh:service_manager find;
+allow aodcommon aodcommonh:service_manager add;
