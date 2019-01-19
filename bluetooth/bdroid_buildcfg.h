@@ -42,12 +42,21 @@ inline const char* BtmGetDefaultName()
 #define MAX_ACL_CONNECTIONS 16
 #define MAX_L2CAP_CHANNELS 16
 #define BLE_VND_INCLUDED  TRUE
+
 /* Increasing SEPs to 12 from 6 to support SHO/MCast i.e. two streams per codec */
 #define AVDT_NUM_SEPS 12
 
+#define BTM_WBS_INCLUDED TRUE       /* Enable WBS */
+#define BTIF_HF_WBS_PREFERRED TRUE  /* Use WBS    */
+
+// skips conn update at conn completion
+#define BT_CLEAN_TURN_ON_DISABLED TRUE
 #define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
 // Some rom invert the logic
 #define BTM_SCO_ENHANCED_SYNC_DISABLED TRUE
+
+/* Enable HFP WBS feature */
+#define BTIF_HF_CLIENT_WBS_INCLUDED TRUE
 
 #undef PROPERTY_VALUE_MAX
 #endif
