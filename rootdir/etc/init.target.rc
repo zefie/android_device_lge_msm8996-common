@@ -390,3 +390,18 @@ service ppd /vendor/bin/mm-pp-dpps
     socket pps stream 0660 system system
     disabled
     writepid /dev/cpuset/system-background/tasks
+
+service vendor.lge-aod-aodcommon-hal-1-0 /vendor/bin/hw/vendor.lge.hardware.aod.aodcommon@1.0-service
+    class hal
+    user system
+    group system
+
+service vendor.lge-aod-aodview-hal-1-0 /vendor/bin/hw/vendor.lge.hardware.aod.aodview@1.0-service
+    class hal
+    user system
+    group system
+
+service vendor.lge-aod-aodpower-hal-1-0 /vendor/bin/hw/vendor.lge.hardware.aod.aodpower@1.0-service
+    class hal
+    user system
+    group system
