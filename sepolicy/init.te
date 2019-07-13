@@ -1,3 +1,12 @@
+typeattribute hal_aodcommon_exec binder_in_vendor_violators;
+typeattribute hal_aodpower_exec binder_in_vendor_violators;
+typeattribute hal_aodview_exec binder_in_vendor_violators;
+typeattribute hal_display_brightness_exec binder_in_vendor_violators;
+typeattribute hal_display_general_exec binder_in_vendor_violators;
+typeattribute hal_display_tune_exec binder_in_vendor_violators;
+typeattribute hal_display_uevent_exec binder_in_vendor_violators;
+typeattribute hal_lge_light_exec binder_in_vendor_violators;
+
 allow init debugfs:dir mounton;
 allow init sensors_data_file:dir mounton;
 allow init persist_drm_file:dir mounton;
@@ -19,3 +28,12 @@ allow init thermal_device:chr_file { write };
 allow init hal_thermal_hwservice:hwservice_manager { add };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
+
+allow init hal_aodcommon_exec:file { execute };
+allow init hal_aodpower_exec:file { execute };
+allow init hal_aodview_exec:file { execute };
+allow init hal_display_brightness_exec:file { execute };
+allow init hal_display_general_exec:file { execute };
+allow init hal_display_tune_exec:file { execute };
+allow init hal_display_uevent_exec:file { execute };
+allow init hal_lge_light_exec:file { execute };

@@ -745,4 +745,98 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- AOD -->
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodcommon</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodCommon</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodCommon/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodpower</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodPower</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodPower/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.aod.aodview</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAodView</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IAodView/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.light</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILightEx</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.uevent</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUevent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.uevent.dpsupport</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDPSupport</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.uevent.dynamicresolution</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDynamicResolution</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.brightness</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayBrightness</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.general</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayGeneral</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lge.hardware.display.tune</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayTune</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>

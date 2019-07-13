@@ -21,3 +21,12 @@ type debugfs_power_stats, fs_type, debugfs_type;
 # type sensors_data_file, file_type, data_file_type;
 type camera_socket, file_type, data_file_type;
 type wcnss_prop, property_type;
+
+type hal_aodcommon_exec, exec_type, vendor_file_type, file_type;
+type hal_aodpower_exec, exec_type, vendor_file_type, file_type;
+type hal_aodview_exec, exec_type, vendor_file_type, file_type;
+type hal_display_brightness_exec, exec_type, vendor_file_type, file_type;
+type hal_display_general_exec, exec_type, vendor_file_type, file_type;
+type hal_display_tune_exec, exec_type, vendor_file_type, file_type;
+type hal_display_uevent_exec, exec_type, vendor_file_type, file_type;
+type hal_lge_light_exec, exec_type, vendor_file_type, file_type;
