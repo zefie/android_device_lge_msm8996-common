@@ -1,2 +1,6 @@
 allow shell runtime_event_log_tags_file:file { open read };
 allow shell kernel:security read_policy;
+allow shell sensors_data_file:dir { getattr };
+allow shell vndservice_contexts_file:file { getattr };
+allow shell nonplat_service_contexts_file:file { getattr };
+allow shell unlabeled:file { getattr };
