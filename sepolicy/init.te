@@ -10,22 +10,22 @@ typeattribute hal_lge_light_exec binder_in_vendor_violators;
 allow init debugfs:dir mounton;
 allow init sensors_data_file:dir mounton;
 allow init persist_drm_file:dir mounton;
-allow init proc_kernel_sched:file rw_file_perms;
-allow init vendor_file:file { execute execute_no_trans };
+allow init proc_kernel_sched:file r_file_perms;
+#allow init vendor_file:file { execute execute_no_trans };
 
 allow init sysfs:file { setattr };
 
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
 allow init sysfs_mmc_host:file { setattr w_file_perms };
-allow init vendor_toolbox_exec:file execute_no_trans;
+#allow init vendor_toolbox_exec:file execute_no_trans;
 allow init adbd:process noatsecure;
 allow init hwservicemanager:binder { call transfer };
-allow init default_android_hwservice:hwservice_manager { add find };
+#allow init default_android_hwservice:hwservice_manager { add find };
 allow init hidl_base_hwservice:hwservice_manager { add };
-allow init sysfs:file { read };
+#allow init sysfs:file { read };
 allow init thermal_device:chr_file { write };
-allow init hal_thermal_hwservice:hwservice_manager { add };
+#allow init hal_thermal_hwservice:hwservice_manager { add };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
 
