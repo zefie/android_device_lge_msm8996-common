@@ -21,8 +21,8 @@
 /dev/block/platform/soc/624000\.ufshc/by-name/encrypt               u:object_r:metadata_block_device:s0
 
 # Fingerprint
-/sys/devices/soc/75b7000\.spi/spi_master/spi8/spi8\.1(/.*)?         u:object_r:sysfs_devices_fingerprint:s0
-/sys/devices/soc/75ba000\.spi/spi_master/spi12/spi12\.[0-1](/.*)?   u:object_r:sysfs_devices_fingerprint:s0
+/sys/devices/soc/75b7000\.spi/spi_master/spi8/spi8\.1(/.*)?         u:object_r:sysfs_spi:s0
+/sys/devices/soc/75ba000\.spi/spi_master/spi12/spi12\.[0-1](/.*)?   u:object_r:sysfs_spi:s0
 /sys/devices/virtual/input/lge_fingerprint/device_prepare           u:object_r:sysfs_lge_fingerprint_prepare:s0
 
 # FRP partition
@@ -109,7 +109,7 @@
 /proc/vmstat                                                        u:object_r:proc_vmstat:s0
 
 # CND
-/data/connectivity(/.*)?                                            u:object_r:cnd_data_file:s0
+/data/connectivity(/.*)?                                            u:object_r:cnd_core_data_file:s0
 
 # AOD
 /(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.aod\.aodcommon@1\.0-service           u:object_r:vendor_file:s0
@@ -119,4 +119,4 @@
 /(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.general@1\.0-service	        u:object_r:hal_display_general_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.tune@1\.0-service		    u:object_r:hal_display_tune_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.display\.uevent@1\.0-service	        u:object_r:hal_display_uevent_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.light@1\.0-service		            u:object_r:hal_lge_light_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.light@1\.0-service		            u:object_r:hal_light_default_exec:s0
