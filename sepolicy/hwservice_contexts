@@ -11,3 +11,6 @@ vendor.lge.hardware.display.uevent.dynamicresolution::IDynamicResolution u:objec
 vendor.lge.hardware.display.tune::IDisplayTune u:object_r:display_tuneh:s0
 vendor.lge.hardware.light::ILight u:object_r:hal_light_hwservice:s0
 vendor.lge.hardware.light::ILightEx u:object_r:hal_light_hwservice:s0
+
+vendor.lge.hardware.display.uevent::IDisplayUevent    u:object_r:display_ueventh:s0
+vendor.lge.hardware.sysnode::ISysNode   u:object_r:lge_sysnode:s0
