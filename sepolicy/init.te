@@ -27,3 +27,4 @@ allow init display_brightness_exec:file { execute };
 allow init display_general_exec:file { execute };
 allow init display_tune_exec:file { execute };
 allow init display_uevent_exec:file { execute };
+allow init lge_sysnode:hwservice_manager { find add };
