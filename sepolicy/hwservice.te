@@ -8,3 +8,4 @@ type display_generalh, hwservice_manager_type;
 type display_ueventh, hwservice_manager_type;
 type display_tuneh, hwservice_manager_type;
 type lge_lighth, hwservice_manager_type;
+type lge_sysnode, hwservice_manager_type;
