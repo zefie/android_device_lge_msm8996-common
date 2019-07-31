@@ -4,6 +4,7 @@ allow init persist_drm_file:dir mounton;
 allow init proc_kernel_sched:file r_file_perms;
 #allow init vendor_file:file { execute execute_no_trans };
 allow init sysfs:file { setattr };
+allow init sysfs:lnk_file { read };
 
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
@@ -19,14 +20,6 @@ allow init thermal_device:chr_file { write };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
 
-allow init hal_aodcommon_exec:file { execute };
-allow init hal_aodpower_exec:file { execute };
-allow init hal_aodview_exec:file { execute };
-allow init hal_display_brightness_exec:file { execute };
-allow init hal_display_general_exec:file { execute };
-allow init hal_display_tune_exec:file { execute };
-allow init hal_display_uevent_exec:file { execute };
-allow init hal_lge_light_exec:file { execute };
 allow init aodcommon_exec:file { execute };
 allow init aodpower_exec:file { execute };
 allow init aodview_exec:file { execute };
@@ -34,3 +27,4 @@ allow init display_brightness_exec:file { execute };
 allow init display_general_exec:file { execute };
 allow init display_tune_exec:file { execute };
 allow init display_uevent_exec:file { execute };
+allow init lge_sysnode:hwservice_manager { find add };
