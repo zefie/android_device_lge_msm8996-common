@@ -20,5 +20,5 @@ allow hwservicemanager aodcommon:process { getattr };
 allow aodcommon aodcommonh:hwservice_manager { find add };
 allow aodcommon hidl_base_hwservice:hwservice_manager { add };
 
-allow aodcommon aodcommonh:service_manager find;
-allow aodcommon aodcommonh:service_manager add;
+allow aodcommon aodcommonh:service_manager { find add };
+allow aodcommon sysfs_graphics:dir { search };
