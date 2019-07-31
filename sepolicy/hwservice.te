@@ -1,1 +1,2 @@
 type nxpnfc_hwservice, hwservice_manager_type;
+type lge_sysnode, hwservice_manager_type;
