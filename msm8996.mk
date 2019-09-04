@@ -150,12 +150,12 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    android.hardware.graphics.composer@2.1-impl:64 \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-service \
     copybit.msm8996 \
     gralloc.msm8996 \
@@ -377,11 +377,11 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Treble
-PRODUCT_PACKAGES += \
-    vndk-sp \
+#PRODUCT_PACKAGES += \
+#    vndk-sp \
 
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.gnss@1.0-v27.so
+#PRODUCT_COPY_FILES += \
+#    prebuilts/vndk/v27/arm64/arch-arm64-armv8-a/shared/vndk-core/android.hardware.gnss@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.gnss@1.0-v27.so
 
 # Trust HAL
 #PRODUCT_PACKAGES += \
