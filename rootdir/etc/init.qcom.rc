@@ -35,16 +35,16 @@ service charger /charger
     
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
+    #chmod 0755 /sys/kernel/debug
 
   # Change ownership of hw_recovery related nodes
-    chown system graphics /sys/kernel/debug/dri/0/debug/dump
-    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_reg
-    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_dbgbus
-    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_vbif_dbgbus
+    #chown system graphics /sys/kernel/debug/dri/0/debug/dump
+    #chown system graphics /sys/kernel/debug/dri/0/debug/recovery_reg
+    #chown system graphics /sys/kernel/debug/dri/0/debug/recovery_dbgbus
+    #chown system graphics /sys/kernel/debug/dri/0/debug/recovery_vbif_dbgbus
 
-    chown root system /dev/kmsg
-    chmod 0620 /dev/kmsg
+    #chown root system /dev/kmsg
+    #chmod 0620 /dev/kmsg
     # Load WIGIG platform driver
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules msm_11ad_proxy
 
@@ -53,11 +53,11 @@ on init
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
-    chown root system /sys/fs/cgroup/memory/bg/tasks
-    chmod 0660 /sys/fs/cgroup/memory/bg/tasks
+    #chown root system /sys/fs/cgroup/memory/bg/tasks
+    #chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
 on post-fs
-    chmod 0755 /sys/kernel/debug/tracing
+    #chmod 0755 /sys/kernel/debug/tracing
 
 on late-fs
     # boot time fs tune
@@ -78,69 +78,69 @@ on early-boot
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
 
     # for backward compatibility
-    chown system system /persist/sensors
-    chown system system /persist/sensors/registry
-    chown system system /persist/sensors/registry/registry
-    chown system system /persist/sensors/registry/registry/sensors_registry
-    chown system system /persist/sensors/sensors_settings
-    chown system system /persist/sensors/registry/config
-    chmod 0664 /persist/sensors/sensors_settings
+    #chown system system /persist/sensors
+    #chown system system /persist/sensors/registry
+    #chown system system /persist/sensors/registry/registry
+    #chown system system /persist/sensors/registry/registry/sensors_registry
+    #chown system system /persist/sensors/sensors_settings
+    #chown system system /persist/sensors/registry/config
+    #chmod 0664 /persist/sensors/sensors_settings
 
-    chown system system /mnt/vendor/persist/sensors
-    chown system system /mnt/vendor/persist/sensors/sns.reg
-    chown system system /mnt/vendor/persist/sensors/sensors_list.txt
-    chown system system /mnt/vendor/persist/sensors/registry
-    chown system system /mnt/vendor/persist/sensors/registry/registry
-    chown system system /mnt/vendor/persist/sensors/registry/registry/sensors_registry
-    chown system system /mnt/vendor/persist/sensors/sensors_settings
-    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
-    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_version
-    chown system system /mnt/vendor/persist/sensors/registry/config
-    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+    #chown system system /mnt/vendor/persist/sensors
+    #chown system system /mnt/vendor/persist/sensors/sns.reg
+    #chown system system /mnt/vendor/persist/sensors/sensors_list.txt
+    #chown system system /mnt/vendor/persist/sensors/registry
+    #chown system system /mnt/vendor/persist/sensors/registry/registry
+    #chown system system /mnt/vendor/persist/sensors/registry/registry/sensors_registry
+    #chown system system /mnt/vendor/persist/sensors/sensors_settings
+    #chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
+    #chown system system /mnt/vendor/persist/sensors/registry/sns_reg_version
+    #chown system system /mnt/vendor/persist/sensors/registry/config
+    #chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
 
 on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chown system system /sys/module/msm_core/parameters/polling_interval
-    chown system system /sys/module/msm_core/parameters/disabled
-    chown system system /sys/kernel/debug/msm_core/enable
-    chown system system /sys/kernel/debug/msm_core/ptable
-    chown system system /sys/kernel/boot_slpi/ssr
-    chown system system /sys/kernel/boot_adsp/ssr
-    chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
-    chown bluetooth net_bt /dev/ttyHS0
-    chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
-    chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
-    chmod 0660 /dev/ttyHS0
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
+    #chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
+    #chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
+    #chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
+    #chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    #chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
+    #chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
+    #chown system system /sys/module/sco/parameters/disable_esco
+    #chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
+    #chown system system /sys/module/msm_core/parameters/polling_interval
+    #chown system system /sys/module/msm_core/parameters/disabled
+    #chown system system /sys/kernel/debug/msm_core/enable
+    #chown system system /sys/kernel/debug/msm_core/ptable
+    #chown system system /sys/kernel/boot_slpi/ssr
+    #chown system system /sys/kernel/boot_adsp/ssr
+    #chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
+    #chmod 0660 /sys/module/bluetooth_power/parameters/power
+    #chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
+    #chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
+    #chmod 0660 /sys/class/rfkill/rfkill0/state
+    #chmod 0660 /proc/bluetooth/sleep/proto
+    #chown bluetooth net_bt /dev/ttyHS0
+    #chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
+    #chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
+    #chmod 0660 /dev/ttyHS0
+    #chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
+    #chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
+    #chmod 0660 /dev/ttyHS2
+    #chown bluetooth bluetooth /dev/ttyHS2
 
-    chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
-    chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+    #chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
+    #chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
+    #chmod 2770 /dev/socket/qmux_radio
     mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
+    #chmod 2770 /dev/socket/qmux_audio
     mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
+    #chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
+    #chmod 2770 /dev/socket/qmux_gps
 
     mkdir /persist/drm 0770 system system
     mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
@@ -168,7 +168,7 @@ on boot
     #Disable spectrum on boot
     setprop spectrum.support 0
 
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
+    #chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -206,33 +206,33 @@ on boot
     write /proc/sys/kernel/printk "6 6 1 7"
 
     # Allow access for CCID command/response timeout configuration
-    chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
+    #chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
     # bond0 used by FST Manager
-    chown wifi wifi /sys/class/net/bond0/bonding/queue_id
+    #chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
     # Allow access to emmc rawdump block partition and dload sysfs node
-    chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
-    chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
-    chown root system /sys/kernel/dload/emmc_dload
-    chmod 0660 /sys/kernel/dload/emmc_dload
-    chown root system /dev/block/bootdevice/by-name/ramdump -p /dev/block/
-    chmod 0660 /dev/block/bootdevice/by-name/ramdump -p /dev/block/
-    chown root system /sys/kernel/dload/dload_mode
-    chmod 0660 /sys/kernel/dload/dload_mode
+    #chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
+    #chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
+    #chown root system /sys/kernel/dload/emmc_dload
+    #chmod 0660 /sys/kernel/dload/emmc_dload
+    #chown root system /dev/block/bootdevice/by-name/ramdump -p /dev/block/
+    #chmod 0660 /dev/block/bootdevice/by-name/ramdump -p /dev/block/
+    #chown root system /sys/kernel/dload/dload_mode
+    #chmod 0660 /sys/kernel/dload/dload_mode
 
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel0-backlight/max_brightness
+    #chown system system /sys/class/backlight/panel0-backlight/brightness
+    #chown system system /sys/class/backlight/panel0-backlight/max_brightness
 
     # Allow access to sensors device attributes
-    chown system system /sys/class/sensors/MPU6050-accel/enable
-    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
-    chown system system /sys/class/sensors/MPU6050-gyro/enable
-    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
-    chown system system /sys/class/sensors/apds9930-light/enable
-    chown system system /sys/class/sensors/apds9930-light/poll_delay
-    chown system system /sys/class/sensors/apds9930-proximity/enable
-    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
+    #chown system system /sys/class/sensors/MPU6050-accel/enable
+    #chown system system /sys/class/sensors/MPU6050-accel/poll_delay
+    #chown system system /sys/class/sensors/MPU6050-gyro/enable
+    #chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
+    #chown system system /sys/class/sensors/apds9930-light/enable
+    #chown system system /sys/class/sensors/apds9930-light/poll_delay
+    #chown system system /sys/class/sensors/apds9930-proximity/enable
+    #chown system system /sys/class/sensors/apds9930-proximity/poll_delay
 
     # Create directory used for display
     # for backward compatibility
@@ -253,10 +253,10 @@ on boot
         oneshot
 
     on property:init.svc.conn_init=stopped
-        chmod 0644 /data/misc/wifi/config
-        chown system wifi /data/misc/wifi/config
-        chmod 0644 /data/misc/bluetooth/bdaddr
-        chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
+        #chmod 0644 /data/misc/wifi/config
+        #chown system wifi /data/misc/wifi/config
+        #chmod 0644 /data/misc/bluetooth/bdaddr
+        #chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -278,7 +278,7 @@ on post-fs-data
     mkdir /data/vendor/qdmastats 0700 system system
     mkdir /data/vendor/qdma 0770 system system
     mkdir /dev/socket/qdma 0777 system system
-    chmod 2777 /dev/socket/qdma
+    #chmod 2777 /dev/socket/qdma
 
     # Create /data/vendor/tzstorage directory for SFS listener
     mkdir /data/vendor/tzstorage 0770 system system
@@ -304,30 +304,30 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp system /data/misc/dhcp
+    #chown dhcp system /data/misc/dhcp
 
     # Create /data/vendor/time folder for time-services
     mkdir /data/vendor/time 0700 system system
 
     #create port-bridge log dir
     mkdir /data/vendor/port_bridge 0770 radio radio
-    chmod 0770 /data/vendor/port_bridge
+    #chmod 0770 /data/vendor/port_bridge
 
     #create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
-    chmod 0770 /data/vendor/netmgr
+    #chmod 0770 /data/vendor/netmgr
 
     #create ipacm log dir
     mkdir /data/vendor/ipa 0770 radio radio
-    chmod 0770 /data/vendor/ipa
+    #chmod 0770 /data/vendor/ipa
 
     #Create QTI dir for logs
     mkdir /data/vendor/dataqti 0770 radio radio
-    chmod 0770 /data/vendor/dataqti
+    #chmod 0770 /data/vendor/dataqti
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
+    #chown system system /data/connectivity
 
     # Create directory used by audio subsystem
     mkdir /data/vendor/audio 0770 audio audio
@@ -343,20 +343,20 @@ on post-fs-data
     mkdir /data/vendor/modem_config 0570 radio root
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown root system /persist
-    chmod 0771 /persist
-    chown system system /persist/WCNSS_qcom_wlan_nv.bin
-    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
+    # We #chown/#chmod /persist again so because mount is run as root + defaults
+    #chown root system /persist
+    #chmod 0771 /persist
+    #chown system system /persist/WCNSS_qcom_wlan_nv.bin
+    #chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
+    #chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
+    #chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
+    #chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
 
-    # Chown polling nodes as needed from UI running on system server
-    chown system system /sys/devices/platform/msm_sdcc.1/polling
-    chown system system /sys/devices/platform/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/msm_sdcc.3/polling
-    chown system system /sys/devices/platform/msm_sdcc.4/polling
+    # #chown polling nodes as needed from UI running on system server
+    #chown system system /sys/devices/platform/msm_sdcc.1/polling
+    #chown system system /sys/devices/platform/msm_sdcc.2/polling
+    #chown system system /sys/devices/platform/msm_sdcc.3/polling
+    #chown system system /sys/devices/platform/msm_sdcc.4/polling
 
     # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
@@ -376,7 +376,7 @@ on post-fs-data
 
     #Create directory for FOTA
     mkdir /data/fota 0771
-    chown system system /data/fota
+    #chown system system /data/fota
 
     # Create directory for hostapd
     mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
@@ -388,14 +388,14 @@ on post-fs-data
 
     #Create FM dir for patchdownloader
     mkdir /data/vendor/fm 0770 system system
-    chmod 0770 /data/vendor/fm
+    #chmod 0770 /data/vendor/fm
 
     #Create PERFD deamon related dirs
     setprop ro.min_freq_0 384000
     mkdir /data/misc/perfd 0755 root system
-    chmod 2755 /data/misc/perfd
+    #chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
+    #chmod 2770 /data/system/perfd
 
     setprop vendor.post_boot.parsed 1
 
@@ -406,20 +406,20 @@ on post-fs-data
 
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
-    chown radio radio /data/vendor/radio/copy_complete
-    chmod 0660 /data/vendor/radio/copy_complete
+    #chown radio radio /data/vendor/radio/copy_complete
+    #chmod 0660 /data/vendor/radio/copy_complete
 
     # copy prebuilt qcril.db files always
     copy /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril_prebuilt.db
-    chown radio radio /data/vendor/radio/qcril_prebuilt.db
-    chmod 0660 /data/vendor/radio/qcril_prebuilt.db
+    #chown radio radio /data/vendor/radio/qcril_prebuilt.db
+    #chmod 0660 /data/vendor/radio/qcril_prebuilt.db
     # File flags for prebuilt ril db file
     write /data/vendor/radio/prebuilt_db_support 1
-    chown radio radio /data/vendor/radio/prebuilt_db_support
-    chmod 0400 /data/vendor/radio/prebuilt_db_support
+    #chown radio radio /data/vendor/radio/prebuilt_db_support
+    #chmod 0400 /data/vendor/radio/prebuilt_db_support
     write /data/vendor/radio/db_check_done 0
-    chown radio radio /data/vendor/radio/db_check_done
-    chmod 0660 /data/vendor/radio/db_check_done
+    #chown radio radio /data/vendor/radio/db_check_done
+    #chmod 0660 /data/vendor/radio/db_check_done
 
     # qti-logkit data
     mkdir /data/vendor/qti-logkit/ 0771 system system
@@ -431,7 +431,7 @@ on post-fs-data
 
     #Create SWAP related dirs
     mkdir /data/vendor/swap 0770 root system
-    chmod 2770 /data/vendor/swap
+    #chmod 2770 /data/vendor/swap
 
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
@@ -480,12 +480,12 @@ service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
     mount cgroup none /dev/blkio blkio
-    chown system system /dev/blkio
-    chown system system /dev/blkio/tasks
-    chmod 0664 /dev/blkio/tasks
+    #chown system system /dev/blkio
+    #chown system system /dev/blkio/tasks
+    #chmod 0664 /dev/blkio/tasks
     mkdir /dev/blkio/bg 0755 system system
-    chown system system /dev/blkio/bg/tasks
-    chmod 0664 /dev/blkio/bg/tasks
+    #chown system system /dev/blkio/bg/tasks
+    #chmod 0664 /dev/blkio/bg/tasks
     write /dev/blkio/blkio.weight 1000
     write /dev/blkio/bg/blkio.weight 100
 
@@ -521,8 +521,8 @@ on property:sys.boot_completed=1
     write /sys/block/dm-1/queue/read_ahead_kb 1024
     write /sys/block/sda/queue/iostats 1
     #WDSP FW boot sysfs node used by STHAL
-    chown media audio /sys/kernel/wdsp0/boot
-    chown media audio /sys/kernel/wcd_cpe0/fw_name
+    #chown media audio /sys/kernel/wdsp0/boot
+    #chown media audio /sys/kernel/wcd_cpe0/fw_name
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd

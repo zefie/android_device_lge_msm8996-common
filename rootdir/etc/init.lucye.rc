@@ -45,9 +45,9 @@ on init
     mkdir /dev/cpuset/camera-daemon
     write /dev/cpuset/camera-daemon/cpus 0-3
     write /dev/cpuset/camera-daemon/mems 0
-    chown system system /dev/cpuset/camera-daemon
-    chown system system /dev/cpuset/camera-daemon/tasks
-    chmod 0664 /dev/cpuset/camera-daemon/tasks
+    #chown system system /dev/cpuset/camera-daemon
+    #chown system system /dev/cpuset/camera-daemon/tasks
+    #chmod 0664 /dev/cpuset/camera-daemon/tasks
 
 on late-fs
     # boot time fs tune
@@ -59,8 +59,8 @@ on late-fs
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
 on post-fs
-    chmod 0660 /dev/lge_dm_tty0
-    chown system system /dev/lge_dm_tty0
+    #chmod 0660 /dev/lge_dm_tty0
+    #chown system system /dev/lge_dm_tty0
     write /sys/devices/platform/lge-qfprom/sec_read 0
 
 on post-fs-data
@@ -101,10 +101,10 @@ on post-fs-data
     mkdir /persist-lg/lgdata 0775 radio radio
     mkdir /persist-lg/audio 0771 system system
     mkdir /persist-lg/property 0771 system radio
-    chown media media /persist-lg/audio
+    #chown media media /persist-lg/audio
 
-    chown system system /sys/devices/platform/lg_diag_cmd/diag_enable
-    chmod 0660 /sys/devices/platform/lg_diag_cmd/diag_enable
+    #chown system system /sys/devices/platform/lg_diag_cmd/diag_enable
+    #chmod 0660 /sys/devices/platform/lg_diag_cmd/diag_enable
 
     # Create folder of camera
     mkdir /data/misc/camera 0770 camera camera
@@ -112,21 +112,21 @@ on post-fs-data
 
     # SSC/SLPI sensors
     mkdir /mnt/vendor/persist/sensors 0775 root system
-    chown root system /mnt/vendor/persist/sensors/sensors_settings
-    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
-    chown root system /mnt/vendor/persist/sensors/sns.reg
-    chmod 0664 /mnt/vendor/persist/sensors/sns.reg
+    #chown root system /mnt/vendor/persist/sensors/sensors_settings
+    #chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+    #chown root system /mnt/vendor/persist/sensors/sns.reg
+    #chmod 0664 /mnt/vendor/persist/sensors/sns.reg
 
-    chown root system /sns/cal/sns.reg
-    chmod 0664 /sns/cal/sns.reg
+    #chown root system /sns/cal/sns.reg
+    #chmod 0664 /sns/cal/sns.reg
 
     # /dev/sensors only supports an ioctl to get the current SLPI timestamp;
     # allow the sensors daemon to perform this as non-root
-    chown root system /dev/sensors
-    chmod 0660 /dev/sensors
+    #chown root system /dev/sensors
+    #chmod 0660 /dev/sensors
 
 on early-boot
-    chown system system /mnt/vendor/persist/sensors/gyro_sensitity_cal
+    #chown system system /mnt/vendor/persist/sensors/gyro_sensitity_cal
 
 on boot
     # Update foreground and background cpusets
@@ -145,176 +145,176 @@ on boot
     write /sys/bus/msm_subsys/devices/subsys5/restart_level "related"
 
     # Wifi firmware reload path
-    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+    #chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
     # Enable camera read sensors data.
     setprop persist.camera.gyro.disable 0
 
     # LGE Settings
-    chown system system /sys/kernel/fast_charge/force_fast_charge
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_enable
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_invert_obsolete
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_min
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
-    chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
-    chown system system /sys/class/panel/img_tune/daylight_mode
+    #chown system system /sys/kernel/fast_charge/force_fast_charge
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_cont
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_enable
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_hue
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_invert_obsolete
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_min
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_sat
+    #chown system system /sys/devices/platform/kcal_ctrl.0/kcal_val
+    #chown system system /sys/class/panel/img_tune/daylight_mode
 
     # Touch gestures
-    chown system system /sys/devices/virtual/input/lge_touch/keyguard
-    chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
-    chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
-    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
-    chown system system /sys/devices/virtual/input/lge_touch/lpwg_notify
-    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_notify
-    chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
-    chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
-    chown system system /sys/devices/virtual/input/lge_touch/q_sensitivity
-    chmod 664 /sys/devices/virtual/input/lge_touch/q_sensitivity
-    chown system system /sys/devices/virtual/input/lge_touch/incoming_call
-    chmod 664 /sys/devices/virtual/input/lge_touch/incoming_call
-    chown system system /sys/devices/virtual/input/lge_touch/ime_status
-    chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
-    chown system system /sys/devices/virtual/input/lge_touch/debug_tool
-    chmod 664 /sys/devices/virtual/input/lge_touch/debug_tool
-    chown system system /sys/devices/virtual/input/lge_touch/debug_option
-    chmod 664 /sys/devices/virtual/input/lge_touch/debug_option
-    chown system system /sys/devices/virtual/input/lge_touch/onhand
-    chmod 664 /sys/devices/virtual/input/lge_touch/onhand
-    chown system radio /sys/devices/virtual/input/lge_touch/tap2wake
-    chmod 664 /sys/devices/virtual/input/lge_touch/tap2wake
+    #chown system system /sys/devices/virtual/input/lge_touch/keyguard
+    #chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
+    #chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
+    #chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
+    #chown system system /sys/devices/virtual/input/lge_touch/lpwg_notify
+    #chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_notify
+    #chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
+    #chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
+    #chown system system /sys/devices/virtual/input/lge_touch/q_sensitivity
+    #chmod 664 /sys/devices/virtual/input/lge_touch/q_sensitivity
+    #chown system system /sys/devices/virtual/input/lge_touch/incoming_call
+    #chmod 664 /sys/devices/virtual/input/lge_touch/incoming_call
+    #chown system system /sys/devices/virtual/input/lge_touch/ime_status
+    #chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
+    #chown system system /sys/devices/virtual/input/lge_touch/debug_tool
+    #chmod 664 /sys/devices/virtual/input/lge_touch/debug_tool
+    #chown system system /sys/devices/virtual/input/lge_touch/debug_option
+    #chmod 664 /sys/devices/virtual/input/lge_touch/debug_option
+    #chown system system /sys/devices/virtual/input/lge_touch/onhand
+    #chmod 664 /sys/devices/virtual/input/lge_touch/onhand
+    #chown system radio /sys/devices/virtual/input/lge_touch/tap2wake
+    #chmod 664 /sys/devices/virtual/input/lge_touch/tap2wake
 
     # External Display Watch
-    chown system system /sys/devices/virtual/ext_watch/config_fontonoff
-    chmod 664 /sys/devices/virtual/ext_watch/config_fontonoff
-    chown system system /sys/devices/virtual/ext_watch/config_fontdata
-    chmod 664 /sys/devices/virtual/ext_watch/config_fontdata
-    chown system system /sys/devices/virtual/ext_watch/config_fonteffect
-    chmod 664 /sys/devices/virtual/ext_watch/config_fonteffect
-    chown system system /sys/devices/virtual/ext_watch/config_fontproperty
-    chmod 664 /sys/devices/virtual/ext_watch/config_fontproperty
-    chown system system /sys/devices/virtual/ext_watch/config_fontposition
-    chmod 664 /sys/devices/virtual/ext_watch/config_fontposition
-    chown system system /sys/devices/virtual/ext_watch/config_timesync
-    chmod 664 /sys/devices/virtual/ext_watch/config_timesync
-    chown system system /sys/devices/virtual/ext_watch/query_fontdata
-    chmod 664 /sys/devices/virtual/ext_watch/query_fontdata
-    chown system system /sys/devices/virtual/ext_watch/query_fontposition
-    chmod 664 /sys/devices/virtual/ext_watch/query_fontposition
-    chown system system /sys/devices/virtual/ext_watch/query_timesync
-    chmod 664 /sys/devices/virtual/ext_watch/query_timesync
-    chown system system /sys/devices/virtual/ext_watch/query_fontcolor
-    chmod 664 /sys/devices/virtual/ext_watch/query_fontcolor
-    chown system system /sys/devices/virtual/ext_watch/query_fonteffect
-    chmod 664 /sys/devices/virtual/ext_watch/query_fonteffect
+    #chown system system /sys/devices/virtual/ext_watch/config_fontonoff
+    #chmod 664 /sys/devices/virtual/ext_watch/config_fontonoff
+    #chown system system /sys/devices/virtual/ext_watch/config_fontdata
+    #chmod 664 /sys/devices/virtual/ext_watch/config_fontdata
+    #chown system system /sys/devices/virtual/ext_watch/config_fonteffect
+    #chmod 664 /sys/devices/virtual/ext_watch/config_fonteffect
+    #chown system system /sys/devices/virtual/ext_watch/config_fontproperty
+    #chmod 664 /sys/devices/virtual/ext_watch/config_fontproperty
+    #chown system system /sys/devices/virtual/ext_watch/config_fontposition
+    #chmod 664 /sys/devices/virtual/ext_watch/config_fontposition
+    #chown system system /sys/devices/virtual/ext_watch/config_timesync
+    #chmod 664 /sys/devices/virtual/ext_watch/config_timesync
+    #chown system system /sys/devices/virtual/ext_watch/query_fontdata
+    #chmod 664 /sys/devices/virtual/ext_watch/query_fontdata
+    #chown system system /sys/devices/virtual/ext_watch/query_fontposition
+    #chmod 664 /sys/devices/virtual/ext_watch/query_fontposition
+    #chown system system /sys/devices/virtual/ext_watch/query_timesync
+    #chmod 664 /sys/devices/virtual/ext_watch/query_timesync
+    #chown system system /sys/devices/virtual/ext_watch/query_fontcolor
+    #chmod 664 /sys/devices/virtual/ext_watch/query_fontcolor
+    #chown system system /sys/devices/virtual/ext_watch/query_fonteffect
+    #chmod 664 /sys/devices/virtual/ext_watch/query_fonteffect
 
     # Always on Display
-    chown system system /sys/class/graphics/fb0/aod
-    chmod 664 /sys/class/graphics/fb0/aod
-    chown system system /sys/class/graphics/fb0/keep_aod
-    chmod 664 /sys/class/graphics/fb0/keep_aod
-    chown system system /sys/class/graphics/fb0/cur_panel_mode
-    chmod 644 /sys/class/graphics/fb0/cur_panel_mode
-    chown system system /sys/class/leds/lcd-backlight-ex/brightness
-    chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
-    chown system system /system/bin/AODLayer
-    chmod 664 /system/bin/AODLayer
+    #chown system system /sys/class/graphics/fb0/aod
+    #chmod 664 /sys/class/graphics/fb0/aod
+    #chown system system /sys/class/graphics/fb0/keep_aod
+    #chmod 664 /sys/class/graphics/fb0/keep_aod
+    #chown system system /sys/class/graphics/fb0/cur_panel_mode
+    #chmod 644 /sys/class/graphics/fb0/cur_panel_mode
+    #chown system system /sys/class/leds/lcd-backlight-ex/brightness
+    #chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
+    #chown system system /system/bin/AODLayer
+    #chmod 664 /system/bin/AODLayer
 
     # High Luminance Mode
-    chown system system /sys/devices/virtual/graphics/fb0/hl_mode
-    chmod 664 /sys/devices/virtual/graphics/fb0/hl_mode
+    #chown system system /sys/devices/virtual/graphics/fb0/hl_mode
+    #chmod 664 /sys/devices/virtual/graphics/fb0/hl_mode
 
     # Thermal BL Max
-    chown system system /sys/devices/virtual/graphics/fb0/thermal_blmax
-    chmod 664 /sys/devices/virtual/graphics/fb0/thermal_blmax
+    #chown system system /sys/devices/virtual/graphics/fb0/thermal_blmax
+    #chmod 664 /sys/devices/virtual/graphics/fb0/thermal_blmax
 
     # Image Tune
-    chown system system /sys/class/panel/img_tune/sharpness
-    chown system system /sys/class/panel/img_tune/color_enhancement
-    chown system system /sys/class/panel/img_tune/image_enhance_set
-    chown system system /sys/class/panel/img_tune/cabc
-    chmod 664 /sys/class/panel/img_tune/sharpness
-    chmod 664 /sys/class/panel/img_tune/color_enhancement
-    chmod 664 /sys/class/panel/img_tune/image_enhance_set
-    chmod 664 /sys/class/panel/img_tune/cabc
+    #chown system system /sys/class/panel/img_tune/sharpness
+    #chown system system /sys/class/panel/img_tune/color_enhancement
+    #chown system system /sys/class/panel/img_tune/image_enhance_set
+    #chown system system /sys/class/panel/img_tune/cabc
+    #chmod 664 /sys/class/panel/img_tune/sharpness
+    #chmod 664 /sys/class/panel/img_tune/color_enhancement
+    #chmod 664 /sys/class/panel/img_tune/image_enhance_set
+    #chmod 664 /sys/class/panel/img_tune/cabc
 
     # Vibrator adjustment
-    chown system system /sys/class/timed_output/vibrator/amp
-    chmod 664 /sys/class/timed_output/vibrator/amp
+    #chown system system /sys/class/timed_output/vibrator/amp
+    #chmod 664 /sys/class/timed_output/vibrator/amp
 
     # Fingerprints
-    chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spitest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/zonetest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/rubbertest
-    chown system input /sys/devices/virtual/input/lge_fingerprint/intstatus
-    chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
-    chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/rubbertest
-    chmod 0440 /sys/devices/virtual/input/lge_fingerprint/intstatus
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
-    chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/testmode
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/spitest
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/zonetest
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/rubbertest
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/intstatus
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/qup_id
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/waitfinger
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/proximity_state
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/testmode
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spitest
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/zonetest
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/checkerbdtest
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/rubbertest
+    #chmod 0440 /sys/devices/virtual/input/lge_fingerprint/intstatus
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/qup_id
+    #chmod 0220 /sys/devices/virtual/input/lge_fingerprint/waitfinger
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    #chmod 0660 /sys/devices/virtual/input/lge_fingerprint/proximity_state
     # FPC device permission
-    chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
-    chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
-    chown system input /sys/devices/virtual/input/lge_fingerprint/fabric_vote
-    chown system input /sys/devices/virtual/input/lge_fingerprint/hw_reset
-    chown system input /sys/devices/virtual/input/lge_fingerprint/irq
-    chown system input /sys/devices/virtual/input/lge_fingerprint/pinctl_set
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
-    chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
-    chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
-    chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/bus_lock
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/clk_enable
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/fabric_vote
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/hw_reset
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/irq
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/pinctl_set
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/spi_prepare
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/spi_owner
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/regulator_enable
+    #chown system input /sys/devices/virtual/input/lge_fingerprint/wakeup_enable
 
     # NFC
-    chmod 0666 /dev/pn544
-    chown nfc nfc /dev/pn544
-    chmod 0666 /dev/p61
-    chown spi spi /dev/p61
+    #chmod 0666 /dev/pn544
+    #chown nfc nfc /dev/pn544
+    #chmod 0666 /dev/p61
+    #chown spi spi /dev/p61
 
     # RGB light
-    chown system system /sys/class/leds/red/pause_lo
-    chown system system /sys/class/leds/blue/pause_lo
-    chown system system /sys/class/leds/green/pause_lo
+    #chown system system /sys/class/leds/red/pause_lo
+    #chown system system /sys/class/leds/blue/pause_lo
+    #chown system system /sys/class/leds/green/pause_lo
 
-    chown system system /sys/class/leds/red/pause_hi
-    chown system system /sys/class/leds/blue/pause_hi
-    chown system system /sys/class/leds/green/pause_hi
+    #chown system system /sys/class/leds/red/pause_hi
+    #chown system system /sys/class/leds/blue/pause_hi
+    #chown system system /sys/class/leds/green/pause_hi
 
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/blue/blink
-    chown system system /sys/class/leds/green/blink
+    #chown system system /sys/class/leds/red/blink
+    #chown system system /sys/class/leds/blue/blink
+    #chown system system /sys/class/leds/green/blink
 
-    chown system system /sys/class/leds/red/ramp_step_ms
-    chown system system /sys/class/leds/blue/ramp_step_ms
-    chown system system /sys/class/leds/green/ramp_step_ms
+    #chown system system /sys/class/leds/red/ramp_step_ms
+    #chown system system /sys/class/leds/blue/ramp_step_ms
+    #chown system system /sys/class/leds/green/ramp_step_ms
 
-    chown system system /sys/class/leds/red/duty_pcts
-    chown system system /sys/class/leds/blue/duty_pcts
-    chown system system /sys/class/leds/green/duty_pcts
+    #chown system system /sys/class/leds/red/duty_pcts
+    #chown system system /sys/class/leds/blue/duty_pcts
+    #chown system system /sys/class/leds/green/duty_pcts
 
-    chown system system /sys/class/leds/red/start_idx
-    chown system system /sys/class/leds/blue/start_idx
-    chown system system /sys/class/leds/green/start_idx
+    #chown system system /sys/class/leds/red/start_idx
+    #chown system system /sys/class/leds/blue/start_idx
+    #chown system system /sys/class/leds/green/start_idx
 
-    chown system system /sys/class/leds/rgb/rgb_blink
+    #chown system system /sys/class/leds/rgb/rgb_blink
 
     # Bluetooth and Wifi
-    chmod 0644 /data/misc/wifi/config
-    chown system wifi /data/misc/wifi/config
-    chmod 0644 /data/misc/bluetooth/bdaddr
-    chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
+    #chmod 0644 /data/misc/wifi/config
+    #chown system wifi /data/misc/wifi/config
+    #chmod 0644 /data/misc/bluetooth/bdaddr
+    #chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
 on charger
     # Enable UFS powersaving
@@ -352,5 +352,5 @@ service vendor.radio-sh /vendor/bin/init.radio.sh
     oneshot
 
 # Dolby
-    chown system system /sys/class/panel/img_tune/dolby_mode
-    chmod 664 /sys/class/panel/img_tune/dolby_mode
+    #chown system system /sys/class/panel/img_tune/dolby_mode
+    #chmod 664 /sys/class/panel/img_tune/dolby_mode

@@ -97,8 +97,8 @@ on init
     write /sys/module/g_android/parameters/rndis_ul_max_pkt_per_xfer 5
 
 on post-fs-data
-    chown system system /sys/devices/platform/lg_diag_cmd/diag_enable
-    chmod 0660 /sys/devices/platform/lg_diag_cmd/diag_enable
+    #chown system system /sys/devices/platform/lg_diag_cmd/diag_enable
+    #chmod 0660 /sys/devices/platform/lg_diag_cmd/diag_enable
 
 ################################################################################
 # VZW
@@ -117,8 +117,8 @@ on property:persist.sys.usb.diag_enable=*
     write /sys/devices/platform/lg_diag_cmd/diag_enable ${persist.sys.usb.diag_enable}
 
 on post-fs-data
-    chown system system /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
-    chmod 0660 /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
+    #chown system system /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
+    #chmod 0660 /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
 
 # adb
 on property:sys.usb.config=adb
