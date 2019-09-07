@@ -110,6 +110,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=560
 
+# SurfaceFlinger
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.protected_contents=true
+
 # Factory Reset Protection (FRP)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/persistent
