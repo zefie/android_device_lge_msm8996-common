@@ -64,6 +64,9 @@ TARGET_BOARD_KERNEL_HEADERS := device/lge/msm8996-common/kernel-headers
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 # Temporary: Use AOSP audio HAL features as advanced features are currently broken
