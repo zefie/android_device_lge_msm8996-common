@@ -49,6 +49,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0
 BOARD_KERNEL_CMDLINE += sched_enable_hmp=1 sched_enable_power_aware=1 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.wificountrycode=US
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_BOOTIMAGE_CMDLINE := skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity $(TARGET_SYSTEM_PARTITION)\"
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
@@ -199,9 +200,11 @@ BOARD_SECCOMP_POLICY := $(PLATFORM_PATH)/seccomp_policy
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Partitions
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USES_FULL_RECOVERY_IMAGE = true
 TARGET_EXFAT_DRIVER := sdfat
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
@@ -224,6 +227,9 @@ BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+
+# Root
+BOARD_ROOT_EXTRA_FOLDERS := firmware mpt persist persist-lg sns
 
 # SELinux policies
 #include device/qcom/sepolicy/sepolicy.mk
