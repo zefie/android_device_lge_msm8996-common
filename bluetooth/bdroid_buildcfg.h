@@ -18,12 +18,11 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#include <cutils/properties.h>
 #include <string.h>
 
 inline const char* BtmGetDefaultName()
 {
-	char product_name[PROPERTY_VALUE_MAX];
+	char product_name[92];
 	property_get("ro.product.name", product_name, "");
 
 	if (strstr(product_name, "h1"))
