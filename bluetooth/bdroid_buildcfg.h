@@ -22,17 +22,7 @@
 
 inline const char* BtmGetDefaultName()
 {
-	char product_name[92];
-	property_get("ro.product.name", product_name, "");
-
-	if (strstr(product_name, "h1"))
-		return "LG G5";
-	if (strstr(product_name, "elsa"))
-		return "LG V20";
-	if (strstr(product_name, "lucye"))
-		return "LG G6";
-
-	return "";
+    return "LG G6";
 }
 
 #define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
