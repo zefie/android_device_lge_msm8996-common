@@ -178,7 +178,7 @@ PRODUCT_PACKAGES += \
 
 # Pocket Mode
 PRODUCT_PACKAGES += \
-    XiaomiPocketMode
+    OneplusPocketMode
 
 # DRM
 PRODUCT_PACKAGES += \
