@@ -121,6 +121,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.device@3.2-impl \
+    libxml2 \
     Snap
 
 # Charger
@@ -311,8 +312,8 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+#PRODUCT_PACKAGES += \
+#    android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml

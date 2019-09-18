@@ -70,6 +70,11 @@ on post-fs-data
 on post-fs-data
     #Create camera dir for EEPROM data
     mkdir mnt/vendor/persist-lg/camera 0771 cameraserver radio
+    #labeling lg partitions
+    restorecon /mnt/vendor/power
+    restorecon_recursive /mnt/vendor/power
+    restorecon /mnt/vendor/power
+    restorecon_recursive /mnt/vendor/power
 
     # NFC local data and nfcee xml storage
     mkdir /data/vendor/nfc 0770 nfc nfc
