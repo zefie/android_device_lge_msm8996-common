@@ -354,6 +354,23 @@ vendor/etc/init/android.hardware.power@1.2-service.rc
 vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8996.so
 vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8996.so
 
+# Power Control
+-framework/vendor.lge.hardware.powercontrol-V1.0-java.jar
+vendor/bin/hw/vendor.lge.hardware.powercontrol@1.0-service
+vendor/etc/init/vendor.lge.hardware.powercontrol@1.0-service.rc
+lib/vendor.lge.hardware.powercontrol@1.0.so
+lib64/vendor.lge.hardware.powercontrol@1.0.so
+
+# PowerHint rescontrol
+vendor/bin/hw/vendor.lge.hardware.powerhint.rescontrol@2.0-service
+vendor/etc/init/vendor.lge.hardware.powerhint.rescontrol@2.0-service.rc
+vendor/lib/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib/libvendor_rescontrol.so
+vendor/lib64/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib64/libvendor_rescontrol.so
+lib/vendor.lge.hardware.powerhint.rescontrol@2.0.so
+lib64/vendor.lge.hardware.powerhint.rescontrol@2.0.so
+
 # Peripheral manager - from Stock H870 V29A
 vendor/bin/pm-proxy
 vendor/bin/pm-service
