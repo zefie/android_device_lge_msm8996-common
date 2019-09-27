@@ -26,3 +26,4 @@ allow display_brightness sysfs_leds:dir search;
 
 allow display_brightness display_brightnessh:service_manager find;
 allow display_brightness display_brightnessh:service_manager add;
+allow display_brightness sysfs_graphics:lnk_file { read write };
