@@ -312,6 +312,16 @@ vendor/bin/energy-awareness
 vendor/bin/msm_irqbalance
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-perfd.so
+vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-util.so
+vendor/lib/vendor.qti.hardware.perf@1.0.so
+vendor/lib64/libperfgluelayer.so
+vendor/lib64/libqti-perfd.so
+vendor/lib64/libqti-perfd-client.so
+vendor/lib64/libqti-util.so
+vendor/lib64/vendor.qti.hardware.perf@1.0.so
 vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
@@ -323,16 +333,43 @@ vendor/etc/perf/perf-profile6.conf
 vendor/etc/perf/perfboostsconfig.xml
 vendor/etc/perf/targetconfig.xml
 vendor/etc/perf/targetresourceconfigs.xml
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-util.so
-vendor/lib/vendor.qti.hardware.perf@1.0.so
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-perfd.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-util.so
-vendor/lib64/vendor.qti.hardware.perf@1.0.so
+
+lib/libqti_performance.so
+lib/libqti-at.so
+lib/libqti-perfd-client_system.so
+lib/libqti-util_system.so
+lib/vendor.qti.hardware.perf@1.0.so
+vendor/lib/libqtigef.so
+vendor/lib/libqti-wl.so
+lib64/libqti_performance.so
+lib64/libqti-at.so
+lib64/libqti-perfd-client_system.so
+lib64/libqti-util_system.so
+lib64/vendor.qti.hardware.perf@1.0.so
+vendor/lib64/libqtigef.so
+
+# Power
+vendor/bin/hw/android.hardware.power@1.2-service
+vendor/etc/init/android.hardware.power@1.2-service.rc
+vendor/lib/hw/power.default.so:vendor/lib/hw/power.msm8996.so
+vendor/lib64/hw/power.default.so:vendor/lib64/hw/power.msm8996.so
+
+# Power Control
+-framework/vendor.lge.hardware.powercontrol-V1.0-java.jar
+vendor/bin/hw/vendor.lge.hardware.powercontrol@1.0-service
+vendor/etc/init/vendor.lge.hardware.powercontrol@1.0-service.rc
+lib/vendor.lge.hardware.powercontrol@1.0.so
+lib64/vendor.lge.hardware.powercontrol@1.0.so
+
+# PowerHint rescontrol
+vendor/bin/hw/vendor.lge.hardware.powerhint.rescontrol@2.0-service
+vendor/etc/init/vendor.lge.hardware.powerhint.rescontrol@2.0-service.rc
+vendor/lib/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib/libvendor_rescontrol.so
+vendor/lib64/vendor.lge.hardware.powerhint.rescontrol@2.0-common.so
+vendor/lib64/libvendor_rescontrol.so
+lib/vendor.lge.hardware.powerhint.rescontrol@2.0.so
+lib64/vendor.lge.hardware.powerhint.rescontrol@2.0.so
 
 # Peripheral manager - from Stock H870 V29A
 vendor/bin/pm-proxy
@@ -521,7 +558,9 @@ vendor/lib/libwvhidl.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
 
 # Wifi
+vendor/bin/hw/wlan_ril
 vendor/bin/cnss-daemon
+vendor/lib64/libcld80211.so
 
 # Wifi-Display - from LA.UM.7.5.r1-04800-8x96.0
 bin/wfdservice
