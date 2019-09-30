@@ -1,8 +1,7 @@
-# Audio
+# Audio - from Stock H870 V29A
 etc/permissions/audiosphere.xml
 framework/audiosphere.jar
 vendor/lib/libacdb-fts.so
-vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
@@ -14,9 +13,7 @@ vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/soundfx/libshoebox.so
 vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbmapper.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
@@ -25,15 +22,14 @@ vendor/lib64/libmdsprpc.so
 vendor/lib64/libqtigef.so
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libqcbassboost.so
-vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
-vendor/lib64/soundfx/libshoebox.so
 
-# Audio (acdbloader)
+# Audio (acdbloader) - from Stock H870 V29A
 vendor/lib/libacdbloader.so
 vendor/lib64/libacdbloader.so
 
-# Bluetooth - aptX - from Stock H870 V20I 
+# Bluetooth - aptX - from Stock H870 V29A
+lib/libaptX_encoder.so
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
@@ -133,8 +129,9 @@ vendor/lib/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-client.so
 vendor/lib64/hw/vendor.lge.hardware.sysnode@1.0-impl.so
 
-# NFC firmware
+# NFC firmware - from Stock H870 V29A
 vendor/firmware/libpn548ad_fw.so:vendor/lib/libpn548ad_fw.so
+vendor/firmware/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw_64.so
 
 # Radio firmware
 vendor/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/default/default/mcfg_hw.mbn|58df6d1657b77154cc3504220727d936df4a35dc

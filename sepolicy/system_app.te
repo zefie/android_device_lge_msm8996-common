@@ -16,3 +16,4 @@ allow system_app ipa_dev:chr_file { read write };
 allow system_app cnd_core_data_file:dir w_dir_perms;
 allow system_app cnd_core_data_file:file create_file_perms;
 allow system_app system_app_service:service_manager { find add };
+allow system_app system_app_service:service_manager add;
