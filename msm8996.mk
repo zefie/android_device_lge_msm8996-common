@@ -374,7 +374,10 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    librmnetctl
+    librmnetctl \
+    libandroid_net \
+    android.hardware.radio@1.2 \
+    android.hardware.radio.config@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
