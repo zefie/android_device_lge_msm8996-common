@@ -126,7 +126,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.device@3.2-impl \
-    Snap
+    opencamera
 
 # Charger
 PRODUCT_PACKAGES += \
