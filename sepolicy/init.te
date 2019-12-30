@@ -3,9 +3,7 @@ allow init sensors_data_file:dir mounton;
 allow init persist_drm_file:dir mounton;
 allow init proc_kernel_sched:file rw_file_perms;
 allow init vendor_file:file { execute execute_no_trans };
-
 allow init sysfs:file { setattr };
-
 #allow init firmware_file:dir { create_dir_perms setattr };
 #allow firmware_file rootfs:filesystem associate;
 allow init sysfs_mmc_host:file { setattr w_file_perms };
@@ -19,7 +17,6 @@ allow init thermal_device:chr_file { write };
 allow init hal_thermal_hwservice:hwservice_manager { add };
 allow init init:netlink_kobject_uevent_socket { create };
 allow init init:socket { create };
-
 allow init diag_device:chr_file { ioctl open read write };
 allow init hal_dpmQmiMgr:binder { call transfer };
 allow init hal_dpmqmi_hwservice:hwservice_manager find;
@@ -33,5 +30,5 @@ allow init system_file:file execute_no_trans;
 allow init tmp_root_mount_file:dir mounton;
 allow init vfat:dir { open read search };
 allow init vfat:file { getattr open read };
-
 allow init hal_drm_hwservice:hwservice_manager { add };
+allow init hal_qteeconnector_hwservice:hwservice_manager { find add };

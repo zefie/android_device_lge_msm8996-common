@@ -8,6 +8,9 @@
 /sys/devices/soc/8c0000\.qcom,msm-cam/video4linux/video0(/.*)?      u:object_r:sysfs_graphics:s0
 /sys/devices/soc/aa4000\.qcom,fd/video4linux/video1(/.*)?           u:object_r:sysfs_graphics:s0
 
+# CND
+/data/connectivity(/.*)?              								u:object_r:cnd_data_file:s0
+
 # CPU tunable for EAS
 /sys/devices/system/cpu/cpu[0-3]/cpufreq/schedutil(/.*)?            u:object_r:sysfs_devices_system_cpu:s0
 
@@ -47,11 +50,22 @@
 /sys/devices(/platform)?/soc/[a-z0-9]+.qcom,mdss_mdp/[a-z0-9]+.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight-ex(/.*)?   u:object_r:sysfs_graphics:s0
 /sys/devices/soc.0/[a-z0-9]+.qcom,mdss_mdp/qcom,mdss_fb_primary.+[a-z0-9]/leds/lcd-backlight-ex(/.*)?   u:object_r:sysfs_graphics:s0
 
+
+# MSM camera related
+/dev/media[0-9]+                       								u:object_r:camera_device:s0
+/dev/jpeg[0-9]+                        								u:object_r:camera_device:s0
+
 # Netmgr
 /data/misc/netmgr(/.*)?                                             u:object_r:net_data_file:s0
 
 # NFC
 /dev/pn54[478]                                                      u:object_r:nfc_device:s0
+
+# perfd
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service.lge.msm8996         u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/perfd                                   u:object_r:perfd_exec:s0
+/data/misc/perfd(/.*)?                                              u:object_r:perfd_data_file:s0
+/data/system/perfd(/.*)?       										u:object_r:perfd_data_file:s0
 
 # Persist
 /persist-lg(/.*)?                                                   u:object_r:persist_drm_file:s0
@@ -86,9 +100,9 @@
 /sys/devices/virtual/graphics/fb0/dci_p3                        u:object_r:sysfs_livedisplay:s0
 /sys/devices/virtual/graphics/fb0/srgb                          u:object_r:sysfs_livedisplay:s0
 
-# MSM camera related
-/dev/media[0-9]+                       u:object_r:camera_device:s0
-/dev/jpeg[0-9]+                        u:object_r:camera_device:s0
+# system-as-root
+/firmware(/.*)?     u:object_r:tmp_root_mount_file:s0
+/mpt(/.*)?          u:object_r:tmp_root_mount_file:s0
 
 # SPI
 /sys/bus/spi/devices                                                u:object_r:sysfs_spi:s0
@@ -96,20 +110,28 @@
 # Sysnode
 /system/vendor/bin/hw/vendor.lge.hardware.sysnode@1.0-service       u:object_r:vendor_file:s0
 
+# vmstat
+/proc/vmstat                                                        u:object_r:proc_vmstat:s0
+
 # WLAN
 /sys/module/bcmdhd/parameters/firmware_path                         u:object_r:sysfs_wlan_fwpath:s0
 
-# perfd
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.1-service.lge.msm8996         u:object_r:hal_power_default_exec:s0
-/(vendor|system/vendor)/bin/perfd                                   u:object_r:perfd_exec:s0
-/data/misc/perfd(/.*)?                                              u:object_r:perfd_data_file:s0
-/data/system/perfd(/.*)?                                            u:object_r:perfd_data_file:s0
+# LGE Services
 
-# vmstat
-/proc/vmstat                                                        u:object_r:proc_vmstat:s0
-# CND
-/data/connectivity(/.*)?              u:object_r:cnd_data_file:s0
+# Bootproperty
+/system/vendor/bin/hw/vendor.lge.hardware.bootproperty@1.0-service	u:object_r:vendor_file:s0
 
-# system-as-root
-/firmware(/.*)?     u:object_r:tmp_root_mount_file:s0
-/mpt(/.*)?          u:object_r:tmp_root_mount_file:s0
+# Configstore
+/system/vendor/bin/hw/vendor.lge.hardware.configstore@1.0-service	u:object_r:vendor_file:s0
+
+# Platform
+/system/vendor/bin/hw/vendor.lge.hardware.platform@1.1-service		u:object_r:vendor_file:s0
+
+# Property
+/system/vendor/bin/hw/vendor.lge.hardware.property@1.2-service		u:object_r:vendor_file:s0
+
+# VSS IMS
+/system/vendor/bin/hw/vendor.lge.hardware.vss_ims@1.0-service		u:object_r:vendor_file:s0
+
+# Qteenconnector
+/system/vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service u:object_r:vendor_file:s0
