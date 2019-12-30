@@ -293,7 +293,11 @@
                        sources="primary output,deep_buffer,direct_pcm,compressed_offload,dual_audio"/>
                 <route type="mix" sink="FM"
                        sources="primary output"/>
-                <route type="mix" sink="BT SCO All"
+                <route type="mix" sink="BT SCO"
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,incall_music"/>
+                <route type="mix" sink="BT SCO Headset"
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,incall_music"/>
+                <route type="mix" sink="BT SCO Car Kit"
                        sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx,incall_music"/>
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
@@ -314,8 +318,6 @@
         <!-- Remote Submix Audio HAL -->
         <xi:include href="/vendor/etc/r_submix_audio_policy_configuration.xml"/>
 
-        <!-- MirrorLink Audio HAL -->
-        <xi:include href="/vendor/etc/mirrorlink_audio_policy_configuration.xml"/>
 
     </modules>
     <!-- End of Modules section -->
