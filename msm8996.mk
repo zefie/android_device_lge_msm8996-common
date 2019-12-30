@@ -116,6 +116,9 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.a2dp@1.0-impl \
     hwaddrs \
     libbt-vendor \
+    liba2dpoffload \
+    libbthost_if \
+    libldacBT_dec 
 	
 
 PRODUCT_COPY_FILES += \
