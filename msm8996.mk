@@ -111,14 +111,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default \
-    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
     android.hardware.bluetooth.a2dp@1.0-impl \
     hwaddrs \
-    libbt-vendor \
-    liba2dpoffload \
-    libbthost_if \
-    libldacBT_dec 
+    libbt-vendor
 	
 
 PRODUCT_COPY_FILES += \
@@ -443,10 +440,11 @@ PRODUCT_COPY_FILES += \
 
 # Wifi Display
 PRODUCT_PACKAGES += \
+    libaacwrapper \
     libnl
 
-#PRODUCT_BOOT_JARS += \
-#    WfdCommon
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 # loggy
 PRODUCT_PACKAGES += \

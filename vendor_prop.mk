@@ -134,6 +134,9 @@ sdm.debug.disable_rotator_split=1 \
 sdm.debug.disable_skip_validate=1 \
 sdm.perf_hint_window=50
 
+# System prop for UBWC
+vendor.video.disable.ubwc=1
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.disable.pq=true \
