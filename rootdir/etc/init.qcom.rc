@@ -403,6 +403,10 @@ on post-fs-data
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
 
+    # NFC local data and nfcee xml storage
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc/param 0770 nfc nfc
+
     setprop vendor.post_boot.parsed 1
 
     mkdir /data/vendor/secure_element 0777 system system
@@ -447,12 +451,6 @@ on post-fs-data
 
     #Start move time data to /data/vendor once post-fs-data done
     start vendor.move_time_data
-
-service nqnfcinfo /system/vendor/bin/nqnfcinfo
-    class late_start
-    group nfc
-    user system
-    oneshot
 
 service iop /system/vendor/bin/iop
     class main
@@ -1093,11 +1091,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     user system
     group system
 
-service esepmdaemon /system/vendor/bin/esepmdaemon
-    class core
-    user system
-    group nfc
-
 on charger
     setprop persist.sys.usb.config mass_storage
     load_system_props
@@ -1207,6 +1200,7 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     # and its .rc file has an "onrestart restart audio-hal" rule, thus
     # an additional auto-restart from the init process isn't needed.
     oneshot
+    interface android.hardware.audio@5.0::IDevicesFactory default
     interface android.hardware.audio@4.0::IDevicesFactory default
     interface android.hardware.audio@2.0::IDevicesFactory default
 

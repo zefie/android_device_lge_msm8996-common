@@ -83,12 +83,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio@4.0 \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio.common@4.0 \
-    android.hardware.audio.common@4.0-util \
-    android.hardware.audio.effect@4.0 \
-    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio@5.0 \
+    android.hardware.audio@5.0-impl \
+    android.hardware.audio.common@5.0 \
+    android.hardware.audio.common@5.0-util \
+    android.hardware.audio.effect@5.0 \
+    android.hardware.audio.effect@5.0-impl \
     audio.a2dp.default \
     audio.primary.msm8996 \
     audio.r_submix.default \
@@ -261,7 +261,6 @@ PRODUCT_PACKAGES += \
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     device/lge/msm8996-common \
-    vendor/nxp/opensource/pn5xx
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -303,11 +302,10 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag \
-    SecureElement \
-    android.hardware.nfc@1.2-service
+    android.hardware.nfc@1.1-service
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # OMX
