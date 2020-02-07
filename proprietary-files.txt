@@ -208,7 +208,6 @@ vendor/lib/libStDrvInt.so
 vendor/lib/libqisl.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib64/lib-sec-disp.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
@@ -735,10 +734,14 @@ etc/permissions/vzw_sso_permissions.xml
 -priv-app/VzwLcSilent/VzwLcSilent.apk;PRESIGNED
 -priv-app/VzwOmaTrigger/VzwOmaTrigger.apk;PRESIGNED
 
-# Widevine - from Marlin qp1a.190711.020
-vendor/bin/hw/android.hardware.drm@1.0-service.widevine
-vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
-vendor/lib/libwvhidl.so
+# Widevine - from Stock H870 V30B
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+vendor/bin/hw/android.hardware.drm@1.1-service.clearkey
+vendor/etc/init/android.hardware.drm@1.1-service.clearkey.rc
+vendor/lib64/libwvhidl.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 
 # Wifi-Display - from LA.UM.7.5.r1-04800-8x96.0
 bin/wfdservice

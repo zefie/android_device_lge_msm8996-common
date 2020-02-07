@@ -8,3 +8,4 @@ allow hal_drm_widevine proc:file { getattr open read };
 
 allow hal_drm_widevine persist_drm_file:dir { search };
 allow hal_drm_widevine persist_drm_file:file { read open getattr };
+allow hal_drm_widevine unlabeled:dir { search };
