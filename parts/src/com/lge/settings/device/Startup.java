@@ -32,7 +32,7 @@ import java.io.File;
 
 import com.lge.settings.device.utils.Constants;
 import com.lge.settings.device.utils.FileUtils;
-import com.lge.settings.device.utils.PreferenceHelper;
+/*import com.lge.settings.device.utils.PreferenceHelper;*/
 
 public class Startup extends BroadcastReceiver {
 
