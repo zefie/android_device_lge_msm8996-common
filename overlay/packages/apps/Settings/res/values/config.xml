@@ -26,4 +26,9 @@
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
+    <!-- Indicates that connected MAC randomization is supported on this device -->
+    <bool translatable="true" name="config_wifi_connected_mac_randomization_supported">true</bool>
+    <!-- Indicates that p2p MAC randomization is supported on this device -->
+    <bool translatable="true" name="config_wifi_p2p_mac_randomization_supported">true</bool>
+
 </resources>
