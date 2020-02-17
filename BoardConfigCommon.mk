@@ -249,5 +249,6 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/etc/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_MFG     := "/vendor/etc/firmware/fw_bcmdhd_mfg.bin"
+
 # inherit from the proprietary version
 -include vendor/lge/msm8996-common/BoardConfigVendor.mk

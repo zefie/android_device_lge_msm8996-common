@@ -465,3 +465,13 @@ PRODUCT_BOOT_JARS += \
 # loggy
 PRODUCT_PACKAGES += \
     loggy.sh
+
+
+# OpenGapps (harmless if not using them) (See https://github.com/opengapps/opengapps/wiki/Package-Comparison for variant types)
+GAPPS_VARIANT := nano
+
+# Enable OpenGapps if it is available
+ifneq ($(wildcard vendor/opengapps/build/opengapps-packages.mk),)
+    $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+endif
+
