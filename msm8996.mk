@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libvolumelistener \
     tinymix
-    
+
 -include $(LOCAL_PATH)/audio/config.mk
 
 # APEX
@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.animation.sh \
     move_time_data.sh \
+    init.qti.ims.sh \
     init.qcom.usb.rc \
     init.target.rc \
     init.lucye.rc \
@@ -277,6 +278,7 @@ PRODUCT_PACKAGES += \
 
 # IMS
 PRODUCT_PACKAGES += \
+    imssettings \
     ims-ext-common \
     libshim_ims
 
@@ -422,7 +424,7 @@ PRODUCT_COPY_FILES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
-	
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
@@ -466,6 +468,17 @@ PRODUCT_BOOT_JARS += \
 # loggy
 PRODUCT_PACKAGES += \
     loggy.sh
+
+
+PRODUCT_LOADED_BY_PRIVILEGED_MODULES += \
+  qti-vzw-ims-internal \
+  qcrilhook \
+  ims \
+  Stk \
+  embmslibrary \
+  datastatusnotification \
+  VZWAPNLib \
+  UserDictionaryProvider
 
 
 # OpenGapps (harmless if not using them) (See https://github.com/opengapps/opengapps/wiki/Package-Comparison for variant types)
